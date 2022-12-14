@@ -3,8 +3,9 @@ package com.epam.aspect;
 import com.epam.exception.BadRequestException;
 import com.epam.annotation.Limit;
 import com.epam.utils.RequestHolder;
-import com.epam.utils.StringUtils;
+
 import com.google.common.collect.ImmutableList;
+import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

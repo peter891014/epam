@@ -62,8 +62,8 @@ public class TemperatureQueryImpl implements TemperatureQueryService {
                             builder.connectTimeout(5, TimeUnit.SECONDS);
                         })).baseUrl(WETHER_INFO).build();
                         JSONObject json3 = http3.sync(provinceId + "" + cityId + countyId + ".html").get().getBody().toJsonObject();
-                        JSONObject weatherinfo = json3.getJSONObject("weatherinfo");
-                        String temp = weatherinfo.getString("temp");
+                        JSONObject weatherInfo = json3.getJSONObject("weatherinfo");
+                        String temp = weatherInfo.getString("temp");
                         Float tempf = new Float(temp);
                         result = Math.round(tempf);
                         optional = Optional.of(result);
