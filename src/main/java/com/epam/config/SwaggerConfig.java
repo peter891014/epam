@@ -1,70 +1,48 @@
 package com.epam.config;
 
-
-import com.google.common.base.Predicates;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.ArrayList;
+
+/**
+ * swagger配置
+ */
 @Configuration
-@EnableSwagger2
 public class SwaggerConfig {
 
-//    public Docket swaggerSpringMvcPlugin() {
-//        return new Docket(DocumentationType.SWAGGER_2).select().apis(
-//                RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class)).build();
-//    }
+    Boolean swaggerEnabled = true;
 
-//    @Bean
-//    public Docket customDocket() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .apiInfo(apiInfo())
-//                .select()
-//                .apis(RequestHandlerSelectors.basePackage("com.epan.mongodb"))//扫描的包路径
-//                .build();
-//    }
-
-
-    //    @Bean
-//    public Docket createRestApi() {
-//        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
-//                .apis(RequestHandlerSelectors.basePackage("com.lsqingfeng.action.swagger.controller")).paths(PathSelectors.any())
-//                .build();
-//
-//    }
     @Bean
-    public Docket swaggerSpringMvcPlugin() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .enable(true)
+    public Docket createRestApi() {
+        return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo())
+                // 是否开启
+                .enable(swaggerEnabled)//true
                 .select()
-                .paths(Predicates.not(PathSelectors.regex("/error.*")))
-                .build();
+                .apis(RequestHandlerSelectors.basePackage("com.***.***"))
+                        .paths(PathSelectors.any())
+                        .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("eladmin 接口文档")
-                .version("2.1")
+                .title("****接口文档")
+                .contact(new Contact("clc", "http://www.baidu.com", "clc@x.com"))
+                .version("1.0")
+                .description("基本的一些接口说明")
+                .license("Apache 2.0 许可") // 许可
+                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0") // 许可链接
+                .extensions(new ArrayList<>()) // 拓展
                 .build();
     }
 
-    /**
-     * @Description: 设置swagger文档中全局参数
-     * @param
-     * @Date: 2020/9/11 10:15
-     * @return: java.util.List<springfox.documentation.service.Parameter>
-     */
-
 }
-
-
 
