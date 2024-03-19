@@ -1,27 +1,41 @@
 server:
   port: 9001
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   data:
     redis:
       repositories:
         enabled: false
     mongodb:
-      uri: mongodb://root:root@49.235.111.225:27017/admin
-       #uri: mongodb://49.235.111.225:27017/admin
-      #uri: mongodb://用户名:密码@服务器IP:端口/数据库名
+      host: 49.65.99.154 #指定MongoDB服务地址
+      port: 27027 #指定端口，默认就为27017
+      database: xs #指定使用的数据库(集合)
+      authentication-database: admin # 登录认证的逻辑库名
+      username: admin #用户名
+      password: GreenLive64455336!@# #密码
+#    mongodb:  url: jdbc:mysql://49.65.99.154:33061/nbcio-boot?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+        #    username: root
+        #    password: GreenLiveMysql2024!#
+        #    driver-class-name: com.mysql.cj.jdbc.Driver
+#      uri: mongodb://gpsData:gpsDataPass@47.122.21.239:27017/gpsData
+      #mongodb://admin:GreenLive64455336!@#@47.122.21.239:27017/gpsData
+      #uri: mongodb://49.235.111.225:27017/admin
+      #uri: mongodb://用户名:密码@服务器IP:端口/数据库名 mongodb://dc3:dc3@47.122.21.239:27017/?authSource=dc3
            # 上方为明确指定某个数据的用户进行连接
          # 也可以使用admin 数据库中的用户进行连接  统一到admin 数据库进行认证
          # admin 用户认证 url 写法： mongodb://账户:密码%40@ip:端口/数据库名?authSource=admin&authMechanism=SCRAM-SHA-1
   redis:
     database: 0
-    host: 127.0.0.1
-    port: 6379
-    password:
+    host: 49.65.99.154
+    port: 6479
+    password: GreenLive64455336!@#
     timeout: 5000
   datasource:
-    url: jdbc:mysql://49.235.111.225:3306/demo?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://49.65.99.154:33061/nbcio-boot?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
     username: root
-    password: Litianxu123!
+    password: GreenLiveMysql2024!#
     driverClassName: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     # 配置获取连接等待超时的时间
@@ -60,3 +74,5 @@ logging:
 
 swagger:
   enabled: true
+openai:
+  token: "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"
