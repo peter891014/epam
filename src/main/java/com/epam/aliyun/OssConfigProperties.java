@@ -4,10 +4,10 @@ package com.epam.aliyun;
 public class OssConfigProperties {
     private String endpoint ="https://oss-cn-hangzhou.aliyuncs.com";
 
-    private String accessKeyId ="LTAI4G1utM9GBmaJm4M6fmR1";
-
-    private String accessKeySecret ="s6FQeyumnuj72Dc6c0yyHq2RslFZeV";
-
+    private String accessKeyId ="";
+ //LTAI4G1utM9GBmaJm4M6fmR1
+    private String accessKeySecret ="";
+    //s6FQeyumnuj72Dc6c0yyHq2RslFZeV
     private String bucket ="'yannan'";
 
     public String getEndpoint() {
