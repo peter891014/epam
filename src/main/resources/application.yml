@@ -74,5 +74,5 @@ logging:
 
 swagger:
   enabled: true
-openai:
-  token: "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"
+#openai:
+#  token: "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"
